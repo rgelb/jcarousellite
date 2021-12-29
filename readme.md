@@ -1,8 +1,9 @@
 ## jCarouselLite - Original Version
 
-This is the original version of [jCarouselLite](http://www.gmarwaha.com/jquery/jcarousellite/).
-Current stable version is 1.1.
-For detailed documentation visit the [Project Page](http://www.gmarwaha.com/jquery/jcarousellite/)
+# If you are starting a new project, do NOT use this carousel.
+
+Current stable version is 1.1.1
+For detailed documentation visit the [Project Page](http://www.gmarwaha.com/jquery/jcarousellite/) of the original project.
 
 * [Project Page](http://www.gmarwaha.com/jquery/jcarousellite/)
 * [Installation Instruction](http://www.gmarwaha.com/jquery/jcarousellite/installation.php)

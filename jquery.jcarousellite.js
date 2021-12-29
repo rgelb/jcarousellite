@@ -4,6 +4,15 @@
  * Copyright (c) 2014 Ganeshji Marwaha
  * Licensed MIT (https://github.com/ganeshmax/jcarousellite/blob/master/LICENSE)
  */
+ 
+ /*!
+ * jCarouselLite - v1.1.1 - 2021-12-29
+ * https://github.com/rgelb/jcarousellite
+ * Copyright (c) 2021 Robert Gelb
+ * Bug fixes to original developer's carousel.
+ * Some changes are based on comments by Sickboy on 
+ * http://www.gmarwaha.com/blog/2007/08/09/jcarousel-lite-a-jquery-plugin/
+ */
 
 (function($) {                                          // Compliant with jquery.noConflict()
     $.jCarouselLite = {
@@ -30,11 +39,12 @@
             function go(to) {
                 if(!running) {
                     clearTimeout(autoTimeout);  // Prevents multiple clicks while auto-scrolling - edge case
-                    calculatedTo = to;
 
                     if(options.beforeStart) {   // Call the beforeStart() callback
                         options.beforeStart.call(this, visibleItems());
                     }
+
+                    calculatedTo = to;
 
                     if(options.circular) {      // If circular, and "to" is going OOB, adjust it
                         adjustOobForCircular(to);
@@ -195,8 +205,8 @@
             function adjustOobForCircular(to) {
                 var newPosition;
 
-                // If first, then goto last
-                if(to <= options.start - numVisible - 1) {
+                // If first, then goto last                
+                if(to <= numVisible - 1) {    // if(to <= options.start - numVisible - 1) {
                     newPosition = to + initialItemLength + options.scroll;
                     ul.css(animCss, -(newPosition * liSize) + "px");
                     calculatedTo = newPosition - options.scroll;
@@ -242,7 +252,7 @@
             }
 
             function animateToPosition(animationOptions) {
-                running = true;
+                // running = true;
 
                 ul.animate(
                     animCss == "left" ?
