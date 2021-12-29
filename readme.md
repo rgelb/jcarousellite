@@ -1,6 +1,6 @@
 ## jCarouselLite - Original Version
 
-### If you are starting a new project, do NOT use this carousel.
+### If you are starting a new project, do NOT use this carousel.  The fixes are for legacy reasons only.
 
 Current stable version is 1.1.1
 For detailed documentation visit the [Project Page](http://www.gmarwaha.com/jquery/jcarousellite/) of the original project.
