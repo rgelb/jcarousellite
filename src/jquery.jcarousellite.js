@@ -3,13 +3,8 @@
  * http://www.gmarwaha.com/jquery/jcarousellite/
  * Copyright (c) 2014 Ganeshji Marwaha
  * Licensed MIT (https://github.com/ganeshmax/jcarousellite/blob/master/LICENSE)
- */
- 
- /*!
- * jCarouselLite - v1.1.1 - 2021-12-29
- * https://github.com/rgelb/jcarousellite
- * Copyright (c) 2021 Robert Gelb
- * Bug fixes to original developer's carousel
+ * 
+ * Includes a good amount of fixes from Constellation
  */
 
 (function($) {                                          // Compliant with jquery.noConflict()
@@ -95,6 +90,7 @@
                 }
 
                 li = $("li", ul);
+
                 itemLength = li.size();
                 calculatedTo = options.start;
             }
@@ -131,8 +127,9 @@
             function initSizes() {
 
                 liSize = options.vertical ?         // Full li size(incl margin)-Used for animation and to set ulSize
-                    li.outerHeight(true) :
-                    li.outerWidth(true);
+                    options.matchImageSizeToContainer ? div.height() : li.outerHeight(true) :
+                    options.matchImageSizeToContainer ? div.width() : li.outerWidth(true);
+
                 ulSize = liSize * itemLength;       // size of full ul(total length, not just for the visible items)
                 divSize = liSize * numVisible;      // size of entire div(total length for just the visible items)
 
@@ -141,8 +138,8 @@
                 // May be applicable for other types of LI children if their dimensions are explicitly specified
                 // Individual LI dimensions
                 li.css({
-                    width: li.width(),
-                    height: li.height()
+                    width: options.matchImageSizeToContainer ? div.width() : li.width(),
+                    height: options.matchImageSizeToContainer ? div.height() : li.height()
                 });
 
                 // Size of the entire UL. Including hidden and visible elements
@@ -278,7 +275,7 @@
 
         vertical: false,            // Set to "true" to make the carousel scroll vertically
         circular: true,             // Set to "true" to make it an infinite carousel
-        visible: 3,                 // Set to a numeric value to specify the number of visible elements at a time
+        visible: 1,                 // Set to a numeric value to specify the number of visible elements at a time
         start: 0,                   // Set to a numeric value to specify which item to start from
         scroll: 1,                  // Set to a numeric value to specify how many items to scroll for one scroll event
 
